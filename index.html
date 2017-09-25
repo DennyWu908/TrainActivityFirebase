@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Train Scheduler</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  </head>
+  <body>
+    
+    <div class="container">
+
+    	<div class="jumbotron">
+    		<h1 class="text-center"><strong>Train Scheduler</strong></h1>
+    		<h4 class="text-center"><strong>A Website for Adding Train Info to a Database</strong></h4>
+    	</div>
+
+    	<h4 id="admin-count"><strong>Connected Administrators: 0</strong></h4>
+
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<h5 class="panel-title">Current Train Schedule</h5>
+    		</div>
+    		<div class="panel-body">
+    			
+	    		<table class="table">
+			        <thead>
+			          <tr>
+			            <th>Train Name</th>
+			            <th>Destination</th>
+			            <th>Frequency (min)</th>
+			            <th>Next Arrival</th>
+			            <th>Minutes Away</th>
+			          </tr>
+			        </thead>
+			        <tbody id="table-body">
+			          <tr>
+			            <td>A Train</td>
+			            <td>A Place</td>
+			            <td>0</td>
+			            <td>A Time</td>
+			            <td>0</td>
+			          </tr>
+
+			        </tbody>
+			    </table>
+
+    		</div>
+    	</div>
+
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<h5 class="panel-title">Add Train</h5>
+    		</div>
+    		<div class="panel-body">
+
+	    		<form role="form">
+	              <div class="form-group">
+	                <label for="name-input">Train Name:</label>
+	                <input class="form-control" id="name-input" type="text">
+	              </div>
+	              <div class="form-group">
+	                <label for="role-input">Destination:</label>
+	                <input class="form-control" id="role-input" type="text">
+	              </div>
+	              <div class="form-group">
+	                <label for="start-date-input">First Train Time (HH:mm - military time):</label>
+	                <input class="form-control" id="start-date-input" type="number">
+	              </div>
+	              <div class="form-group">
+	                <label for="work-input">Frequency (min):</label>
+	                <input class="form-control" id="work-input" type="number">
+	              </div>
+	              <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+	            </form>
+
+    		</div>
+    	</div>
+
+    </div>
+
+  </body>
+</html>
