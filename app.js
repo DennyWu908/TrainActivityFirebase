@@ -37,6 +37,8 @@ $("#add-train").on("click", function(event) {
 	frequency = $("#frequency-input").val().trim();
 	firstArrival = $("#time-input").val().trim();
 
+	// Convert the difference between the time of the first train arrival and the current time into minutes. Divide this number by the frequency. The remainder should be a fraction of the frequency. Convert this number to minutes. The result should be the correct value for "Minutes Away". Add this number of minutes to the current time for the time of the next train arrival.
+
 	// A new row on the table will be created for the info submitted by the user. The name, destination, and frequency of each train will be added to a column on the row. Then the row will be appended to the table.
 
 	var trElement = $("<tr>")
