@@ -45,6 +45,8 @@ $("#add-train").on("click", function(event) {
 	var tdName = $("<td>" + trainName + "</td>")
 	var tdDestination = $("<td>" + destination + "</td>")
 	var tdFrequency = $("<td>" + frequency + "</td>")
+
+	// There have to be two additional variables to add columns for the values of "Minutes Away" and "Next Arrival". Similarly, these values need to be pushed to the database.
 	
 	trElement.append(tdName)
 	trElement.append(tdDestination)
