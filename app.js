@@ -15,6 +15,8 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+// These variables are really only being used in your click handler function
+// below so I'd declare them there instead of on the outermost scope.
 var trainName = "";
 var destination = "";
 var frequency = 0;
@@ -75,7 +77,12 @@ $("#add-train").on("click", function(event) {
 
 // This function will retrieve info on trains from the database and log them to the console. It will also display an error message, if necessary.
 
+// By adding the `.limitToLast(1)` to this listener chain you'll only ever get one train object back from firebase
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+
+  // Inside of this listener is the ideal spot for adding trains to the dom because you'll be guaranteed
+  // to only ever add trains that have been saved in the database. You'd want to add some validation
+  // logic though just to be sure that the object you're trying to add has all the necessary properties.
 
 	var sv = snapshot.val();
 
@@ -117,3 +124,7 @@ connectionsRef.on("value", function(snap) {
   $("#admin-count").html("Connected Administrators: " + snap.numChildren());
 
 });
+
+// This was a tough assignment and you made a very solid attmept at it so give yourself a pat on the back for that!
+// I'd recommend checking out the solution code to compare how they went about solving it and also checking out
+// the solution video walkthrough here: https://www.youtube.com/watch?v=Dz5iKzwHi0k&index=9
